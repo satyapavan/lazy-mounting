@@ -85,7 +85,7 @@ class LazyMounting:
 @app.route('/', methods=['GET'])
 def root():
     logging.debug('Entering root')
-    return app.send_static_file('index.html')
+    return app.send_static_file('web/index.html')
 
 @perf
 @app.route('/mount', methods=['GET'])
@@ -107,7 +107,7 @@ def logs():
         logging.debug('Hello')
         rsp_data = []
 
-        with open(r'test.txt') as fp:
+        with open(r'app-bin.log') as fp:
             for line in (fp.readlines() [-10:]):
                 rsp_data.append(line)
 
